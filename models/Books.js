@@ -7,6 +7,10 @@ const BookSchema = mongoose.Schema({ // BOOK ILE ILGILI MODELIN OLUSTURULMASI IS
     },
     description: { //FIELD ALANI
         type: String
+    },
+    created: { type: Date, default: Date.now },
+    addedUser : {
+        type : String
     }
 })
 

@@ -17,7 +17,8 @@ router.get('/', (req, res) => { //   http://localhost:4000/books
 router.post('/', (req, res) => { //POST İŞLEMİ
     const book = new Book({
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        addedUser : req.body.addedUser
     })
 
     book.save()
@@ -39,6 +40,7 @@ router.delete('/:id', (req, res) => {
 router.patch('/:id', (req, res) => {
     Book.updateOne({ _id: req.params.id }, {
         $set: {
+            title: req.body.title,
             description: req.body.description
         }
     }).then(data => {
